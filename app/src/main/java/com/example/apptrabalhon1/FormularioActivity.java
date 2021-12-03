@@ -12,6 +12,7 @@ public class FormularioActivity extends AppCompatActivity {
 
     private EditText etNome;
     private Spinner spAno;
+    private Spinner spCategorias;
     private Button btnSalvar;
     private String acao;
     private Filme filme;
@@ -23,6 +24,7 @@ public class FormularioActivity extends AppCompatActivity {
 
         etNome = findViewById( R.id.etNome );
         spAno = findViewById( R.id.spAno );
+        spCategorias = findViewById(R.id.spCategorias);
         btnSalvar = findViewById( R.id.btnSalvar );
 
         acao = getIntent().getStringExtra("acao");
@@ -45,7 +47,12 @@ public class FormularioActivity extends AppCompatActivity {
             filme = FilmeDAO.getFilmeById(this, idFilme);
 
             etNome.setText( filme.nome );
-
+            String [] arrayCategorias = getResources().getStringArray(R.array.arrayCategorias);
+            for (int i=1; i < arrayCategorias.length; i++){
+                if (String.valueOf(arrayCategorias[i]) == filme.getCategoria()){
+                    spCategorias.setSelection(i);
+                }
+            }
             String[] arrayAno = getResources().getStringArray(R.array.arrayAno);
             for(int i = 1; i < arrayAno.length ; i++){
                 if( Integer.valueOf( arrayAno[i] ) == filme.getAno()){
@@ -68,6 +75,7 @@ public class FormularioActivity extends AppCompatActivity {
 
             filme.nome = etNome.getText().toString();
             filme.setAno( Integer.valueOf( spAno.getSelectedItem().toString()  ) );
+            filme.setCategoria(spCategorias.getSelectedItem().toString());
 
             if( acao.equals("editar")){
                 FilmeDAO.editar(filme, this);
@@ -76,6 +84,7 @@ public class FormularioActivity extends AppCompatActivity {
                 FilmeDAO.inserir(filme, this);
                 etNome.setText("");
                 spAno.setSelection(0);
+                spCategorias.setSelection(1, true);
             }
         }
     }

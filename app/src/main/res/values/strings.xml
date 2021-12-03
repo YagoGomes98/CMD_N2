@@ -43,5 +43,18 @@
         <item>2021</item>
     </string-array>
 
+    <string-array name="arrayCategorias">
+        <item>Selecione...</item>
+        <item>Ação</item>>
+        <item>Aventura</item>>
+        <item>Comédia</item>>
+        <item>Ficção</item>>
+        <item>Terror</item>>
+        <item>Animação</item>>
+        <item>Drama</item>>
+
+
+    </string-array>
+
     <string name="txtAtencao">Atenção</string>
 </resources>

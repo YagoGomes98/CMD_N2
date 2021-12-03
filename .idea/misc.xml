@@ -3,10 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Yago/AndroidStudioProjects/apptrabalhon1/app/src/main/res/layout/activity_formulario.xml" value="0.12771739130434784" />
+        <entry key="..\:/Users/Yago/AndroidStudioProjects/apptrabalhon1/app/src/main/res/layout/activity_formulario.xml" value="0.33" />
+        <entry key="..\:/Users/Yago/AndroidStudioProjects/apptrabalhon1/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Yago/AndroidStudioProjects/apptrabalhon1/app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="..\:/Users/Yago/AndroidStudioProjects/apptrabalhon1/app/src/main/res/layout/fragment_first.xml" value="0.1" />
-        <entry key="..\:/Users/Yago/AndroidStudioProjects/apptrabalhon1/app/src/main/res/layout/layout_list.xml" value="0.1" />
+        <entry key="..\:/Users/Yago/AndroidStudioProjects/apptrabalhon1/app/src/main/res/layout/layout_list.xml" value="0.22" />
       </map>
     </option>
   </component>
