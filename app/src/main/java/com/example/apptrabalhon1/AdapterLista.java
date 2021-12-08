@@ -47,6 +47,7 @@ public class AdapterLista extends BaseAdapter {
             item = new ItemSuporte();
             item.tvNome = convertView.findViewById(R.id.tvListaNome);
             item.tvAno = convertView.findViewById(R.id.tvListaAno);
+            item.tvCategoria = convertView.findViewById(R.id.tvListaCategoria);
             item.layout = convertView.findViewById(R.id.llFundoLista);
             convertView.setTag( item );
         }else {
@@ -55,6 +56,7 @@ public class AdapterLista extends BaseAdapter {
 
         Filme filme = filmeList.get(i);
         item.tvNome.setText(  filme.nome );
+        item.tvCategoria.setText(String.valueOf(filme.getCategoria()));
         item.tvAno.setText(  String.valueOf( filme.getAno() ) );
 
         if( i % 2 == 0 ){
@@ -66,7 +68,7 @@ public class AdapterLista extends BaseAdapter {
     }
 
     private class ItemSuporte{
-        TextView tvNome, tvAno;
+        TextView tvNome, tvAno, tvCategoria;
         LinearLayout layout;
     }
 

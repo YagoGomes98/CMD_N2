@@ -49,27 +49,29 @@ public class FormularioActivity extends AppCompatActivity {
             etNome.setText( filme.nome );
             String [] arrayCategorias = getResources().getStringArray(R.array.arrayCategorias);
             for (int i=1; i < arrayCategorias.length; i++){
-                if (String.valueOf(arrayCategorias[i]) == filme.getCategoria()){
+                if (filme.getCategoria().equals(arrayCategorias[i])){
                     spCategorias.setSelection(i);
+                    break;
                 }
             }
             String[] arrayAno = getResources().getStringArray(R.array.arrayAno);
             for(int i = 1; i < arrayAno.length ; i++){
                 if( Integer.valueOf( arrayAno[i] ) == filme.getAno()){
                     spAno.setSelection( i );
+                    break;
                 }
             }
         }
     }
 
     private void salvar(){
-        if( spAno.getSelectedItemPosition() == 0 || etNome.getText().toString().isEmpty() ) {
+        if( spAno.getSelectedItemPosition() == 0 || etNome.getText().toString().isEmpty() || spCategorias.getSelectedItemPosition() == 0 ) {
 
             Toast.makeText(this, "Preencha todos os campos.", Toast.LENGTH_SHORT).show();
 
         }else{
 
-            if (acao.equals("novo")) {
+            if (acao.equals("inserir")) {
                 filme = new Filme();
             }
 
@@ -77,14 +79,14 @@ public class FormularioActivity extends AppCompatActivity {
             filme.setAno( Integer.valueOf( spAno.getSelectedItem().toString()  ) );
             filme.setCategoria(spCategorias.getSelectedItem().toString());
 
-            if( acao.equals("editar")){
-                FilmeDAO.editar(filme, this);
-                finish();
-            }else {
+            if( acao.equals("inserir")){
                 FilmeDAO.inserir(filme, this);
                 etNome.setText("");
-                spAno.setSelection(0);
-                spCategorias.setSelection(1, true);
+                spCategorias.setSelection(0, true);
+
+            }else {
+                FilmeDAO.editar (filme, this);
+                finish();
             }
         }
     }
