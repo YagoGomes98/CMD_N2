@@ -71,7 +71,7 @@ public class FormularioActivity extends AppCompatActivity {
 
         }else{
 
-            if (acao.equals("inserir")) {
+            if (acao.equals("novo")) {
                 filme = new Filme();
             }
 
@@ -79,14 +79,15 @@ public class FormularioActivity extends AppCompatActivity {
             filme.setAno( Integer.valueOf( spAno.getSelectedItem().toString()  ) );
             filme.setCategoria(spCategorias.getSelectedItem().toString());
 
-            if( acao.equals("inserir")){
-                FilmeDAO.inserir(filme, this);
-                etNome.setText("");
-                spCategorias.setSelection(0, true);
-
-            }else {
+            if( acao.equals("editar")){
                 FilmeDAO.editar (filme, this);
                 finish();
+
+            }else {
+                FilmeDAO.inserir(filme, this);
+                etNome.setText("");
+                spAno.setSelection(0);
+                spCategorias.setSelection(0, true);
             }
         }
     }
